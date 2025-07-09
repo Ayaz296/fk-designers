@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-neutral-800 bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-neutral-950 font-medium tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    @apply overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-2.5 font-sans text-sm font-medium transition-all duration-200 rounded;
+  }
+
+  .btn-primary {
+    @apply bg-gold-500 text-white hover:bg-gold-600;
+  }
+
+  .btn-outline {
+    @apply border border-gold-500 text-gold-500 hover:bg-gold-50;
+  }
+
+  .btn-sm {
+    @apply px-4 py-1.5 text-xs;
+  }
+
+  .btn-lg {
+    @apply px-8 py-3 text-base;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300;
+  }
+
+  .nav-link {
+    @apply relative font-medium transition-colors duration-200 hover:text-gold-500 focus:outline-none;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute w-0 h-0.5 bg-gold-500 left-0 -bottom-1 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .nav-link-active {
+    @apply text-gold-500;
+  }
+
+  .nav-link-active::after {
+    @apply w-full;
+  }
+
+  .form-input {
+    @apply w-full border-gray-300 rounded-md focus:ring-gold-500 focus:border-gold-500 transition-colors duration-200;
+  }
+
+  .section-heading {
+    @apply relative pb-3 mb-8 text-center;
+  }
+
+  .section-heading::after {
+    @apply content-[''] absolute w-24 h-0.5 bg-gold-500 left-1/2 -translate-x-1/2 bottom-0;
+  }
+
+  .product-card {
+    @apply card hover:shadow-gold transform transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .filter-option {
+    @apply cursor-pointer flex items-center px-4 py-2 text-sm hover:bg-gold-50 transition-colors duration-150;
+  }
+
+  .filter-option-active {
+    @apply bg-gold-50 text-gold-600;
+  }
+
+  /* Mobile-specific improvements */
+  @media (max-width: 640px) {
+    .container-custom {
+      @apply px-4;
+    }
+    
+    .btn {
+      @apply w-full justify-center;
+    }
+    
+    .btn-lg {
+      @apply py-4 text-lg;
+    }
+  }
+
+  /* Custom scroll styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 hover:bg-gray-400 rounded-full transition-colors duration-200;
+  }
+
+  /* Smooth animations */
+  .smooth-appear {
+    animation: smoothAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @keyframes smoothAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
